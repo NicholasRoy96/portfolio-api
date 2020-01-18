@@ -1,5 +1,8 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
+const main = require('./db');
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+main().catch(console.error);
+
+app.listen(port, () => console.log(`App listening on port ${port}!`));
