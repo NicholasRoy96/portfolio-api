@@ -4,19 +4,43 @@
   "description": "user api",
   "main": "app.js",
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "body-parser": "^1.19.0",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "mongodb": "^3.3.3"
   },
   "devDependencies": {
+    "mocha": "^7.0.0",
     "nodemon": "^2.0.2",
-    "standard": "^14.3.1"
+    "standard": "^14.3.1",
+    "sinon": "^8.1.0",
+    "sinon-chai": "^3.4.0",
+    "sinon-express-mock": "^2.2.1",
+    "chai": "^4.2.0",
+    "nyc": "^15.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "standard --fix && nodemon server.js"
+    "start": "npm run lint && nodemon server.js",
+    "test": "npm run lint && nyc mocha --exit test/controllers/**/*.test.js",
+    "lint": "standard --fix"
   },
   "author": "Nick",
-  "license": "ISC"
+  "license": "ISC",
+  "standard": {
+    "env": [
+      "mocha"
+    ],
+    "globals": [
+      "expect"
+    ]
+  },
+  "nyc": {
+    "instrument": true,
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "report-dir": "./test/coverage"
+  }
 }
