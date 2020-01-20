@@ -15,20 +15,18 @@ module.exports = async (req, res) => {
       return res.status('400').send('You must provide a valid email')
     }
     const existingUser = await db.collection('users').findOne({ email: email.toLowerCase() })
-    if (!existingUser) {
-      const newUser = {
-        email: email.toLowerCase(),
-        givenName,
-        familyName,
-        created: new Date().toString()
-      }
-      await db.collection('users').insertOne(newUser)
-      return res.status('201').send('User created')
-      // TODO also return id of document just created so can test get route, update route and delete route?
-    }
     if (existingUser) {
       return res.status('409').send('A user already exists with this email.')
     }
+    const newUser = {
+      email: email.toLowerCase(),
+      givenName,
+      familyName,
+      created: new Date().toString()
+    }
+    await db.collection('users').insertOne(newUser)
+    return res.status('201').send('User created')
+    // TODO also return id of document just created so can test get route, update route and delete route?
   } catch (err) {
     return res.status('500').send(err)
   }
