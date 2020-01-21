@@ -115,21 +115,21 @@ describe('create user', () => {
         expect(res.send).to.have.been.calledWith('A user already exists with this email.')
       })
     })
+  })
 
-    describe('if the user doesnt exist', async () => {
-      const req = mockReq({
-        app,
-        body: { email: 'duncan@duncan.com', givenName: 'duncan', familyName: 'fenning' }
-      })
-      const res = mockRes()
-      it('should insert user to database and return a 201 status', async () => {
-        await create(req, res)
-        expect(res.status).to.have.been.calledWith('201')
-      })
-      it('should call res.send with user created message', async () => {
-        await create(req, res)
-        expect(res.send).to.have.been.calledWith('User created')
-      })
+  describe('if the user doesnt exist', async () => {
+    const req = mockReq({
+      app,
+      body: { email: 'duncan@duncan.com', givenName: 'duncan', familyName: 'fenning' }
+    })
+    const res = mockRes()
+    it('should insert user to database and return a 201 status', async () => {
+      await create(req, res)
+      expect(res.status).to.have.been.calledWith('201')
+    })
+    it('should call res.send with user created message', async () => {
+      await create(req, res)
+      expect(res.send).to.have.been.calledWith('User created')
     })
   })
 })
