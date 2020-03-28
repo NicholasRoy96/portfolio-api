@@ -7,7 +7,7 @@
 > Please follow the steps below to run the API
 
 1. `git clone https://github.com/NicholasRoy96/Test-API.git`
-2. `cd HX-Test-API/`
+2. `cd Test-API/`
 3. `npm install`
 4. `npm start`
 
