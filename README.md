@@ -1,4 +1,4 @@
-# Holiday Extras User API
+# User API
 
 ----
 ## Installation
