@@ -6,8 +6,8 @@
 
 > Please follow the steps below to run the API
 
-1. `git clone https://github.com/NicholasRoy96/Test-API.git`
-2. `cd Test-API/`
+1. `git clone https://github.com/NicholasRoy96/portfolio-api.git`
+2. `cd portfolio-api/`
 3. `npm install`
 4. `npm start`
 
@@ -57,10 +57,3 @@
 `DELETE localhost:3000/users/:id`
 
 ----
-## TODO
-
-
-> Below is a list of potential improvements I could make if I had longer to spend building the API
-
-- Host API
-- Create front-end app to consume API
