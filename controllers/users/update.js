@@ -4,11 +4,11 @@ const validator = require('email-validator')
 module.exports = async (req, res) => {
   try {
     const db = req.app.get('db')
-    const { email, givenName, familyName } = req.body
+    const { email, givenName, familyName, dob } = req.body
 
     // existence checking required params
-    if (!email || !givenName || !familyName) {
-      return res.status('400').send('You must provide an email, given name, and family name to update the user.')
+    if (!email || !givenName || !familyName || !dob) {
+      return res.status('400').send('You must provide information in all the fields')
     }
 
     // email checks
