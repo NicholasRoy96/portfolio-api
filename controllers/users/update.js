@@ -4,10 +4,10 @@ const validator = require('email-validator')
 module.exports = async (req, res) => {
   try {
     const db = req.app.get('db')
-    const { email, givenName, familyName, dob } = req.body
+    const { email, forename, surname, dob } = req.body
 
     // existence checking required params
-    if (!email || !givenName || !familyName || !dob) {
+    if (!email || !forename || !surname || !dob) {
       return res.status('400').send('You must provide information in all the fields')
     }
 
@@ -25,8 +25,9 @@ module.exports = async (req, res) => {
     // updating user, keeping original created date
     const updatedUser = {
       email: email.toLowerCase(),
-      givenName,
-      familyName,
+      forename,
+      surname,
+      dob,
       created: existingUser.created
     }
     await db.collection('users').findOneAndReplace({ _id: mongo.ObjectID(req.params.id) }, updatedUser)
