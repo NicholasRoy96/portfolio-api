@@ -1,5 +1,5 @@
 {
-  "name": "hx_api",
+  "name": "portfolio-api",
   "version": "1.0.0",
   "description": "user api",
   "main": "app.js",
@@ -23,7 +23,7 @@
     "nyc": "^15.0.0"
   },
   "scripts": {
-    "start": "npm run lint && nodemon server.js",
+    "start": "nodemon --watch . server.js",
     "test": "npm run lint && nyc mocha --exit test/controllers/**/*.test.js",
     "lint": "./node_modules/.bin/standard --fix"
   },
