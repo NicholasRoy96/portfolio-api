@@ -25,7 +25,7 @@
   "scripts": {
     "start": "npm run lint && nodemon server.js",
     "test": "npm run lint && nyc mocha --exit test/controllers/**/*.test.js",
-    "lint": "standard --fix"
+    "lint": "./node_modules/.bin/standard --fix"
   },
   "author": "Nick",
   "license": "ISC",
