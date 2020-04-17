@@ -23,7 +23,7 @@
     "nyc": "^15.0.0"
   },
   "scripts": {
-    "start": "nodemon --watch . server.js",
+    "start": "node server.js",
     "test": "npm run lint && nyc mocha --exit test/controllers/**/*.test.js",
     "lint": "./node_modules/.bin/standard --fix"
   },
