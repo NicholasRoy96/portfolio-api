@@ -12,9 +12,10 @@ mongodb.connect(config.mongodb.connection, { useNewUrlParser: true, useUnifiedTo
   app.set('db', client.db())
 })
 
+app.use(cors())
+app.options('*', cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors())
 app.use(routes)
 
 app.listen(process.env.PORT, () => console.log('API running on port 3000'))
